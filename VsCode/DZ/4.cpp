@@ -16,7 +16,7 @@ bool Check(int Num)
         Num /= 8;
     }
 
-    Check1 = strNum[strNum.length() - 1] + strNum[strNum.length()];
+    Check1 = strNum.substr(strNum.length() - 2);
 
     if ((Check1 == "15") || (Check1 == "17"))
         return true;

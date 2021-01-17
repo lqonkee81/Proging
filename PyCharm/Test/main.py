@@ -9,18 +9,16 @@ def Check(num):
     else:
         return  False
 
-def main():
-    Count = 0
-    Max = 0
+####RUN####
 
-    for i in range(2371, 9472):
-        if (i % 5 != 0) or (i % 3 != 0):
-            if Check(i):
-                Max = i
-                Count += 1
+Count = 0
+Max = 0
 
-    print("Count: ", Count)
-    print("Max: ", Max)
+for i in range(2371, 9472, 1):
+    if (i % 5 != 0) or (i % 3 != 0):
+        if Check(i):
+            Max = i
+            Count += 1
 
-#RUN
-main()
+print("Count: ", Count)
+print("Max: ", Max)
