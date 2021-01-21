@@ -3,10 +3,10 @@
 ## any manual changes will be erased      
 ##
 ## Debug
-ProjectName            :=Test
+ProjectName            :=Homework
 ConfigurationName      :=Debug
 WorkspacePath          :=/home/lqonkee81/Proging/CodeLite/Test
-ProjectPath            :=/home/lqonkee81/Proging/CodeLite/Test/Test
+ProjectPath            :=/home/lqonkee81/Proging/CodeLite/Test/Homework
 IntermediateDirectory  :=$(ConfigurationName)
 OutDir                 := $(IntermediateDirectory)
 CurrentFileName        :=
@@ -32,7 +32,7 @@ Preprocessors          :=
 ObjectSwitch           :=-o 
 ArchiveOutputSwitch    := 
 PreprocessOnlySwitch   :=-E
-ObjectsFileList        :="Test.txt"
+ObjectsFileList        :="Homework.txt"
 PCHCompileFlags        :=
 MakeDirCommand         :=mkdir -p
 LinkOptions            :=  
@@ -60,7 +60,7 @@ AS       := /usr/bin/as
 ## User defined environment variables
 ##
 CodeLiteDir:=/usr/share/codelite
-Objects0=$(IntermediateDirectory)/main.cpp$(ObjectSuffix) 
+Objects0=$(IntermediateDirectory)/1cpp.cpp$(ObjectSuffix) 
 
 
 
@@ -91,11 +91,11 @@ PreBuild:
 ##
 ## Objects
 ##
-$(IntermediateDirectory)/main.cpp$(ObjectSuffix): main.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/main.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/main.cpp$(DependSuffix) -MM main.cpp
-	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/lqonkee81/Proging/CodeLite/Test/Test/main.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/main.cpp$(PreprocessSuffix): main.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/main.cpp$(PreprocessSuffix) main.cpp
+$(IntermediateDirectory)/1cpp.cpp$(ObjectSuffix): 1cpp.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/1cpp.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/1cpp.cpp$(DependSuffix) -MM 1cpp.cpp
+	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/lqonkee81/Proging/CodeLite/Test/Homework/1cpp.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/1cpp.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/1cpp.cpp$(PreprocessSuffix): 1cpp.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/1cpp.cpp$(PreprocessSuffix) 1cpp.cpp
 
 
 -include $(IntermediateDirectory)/*$(DependSuffix)

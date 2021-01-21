@@ -5,6 +5,7 @@ bool Check(int Num)
 {
     int Sum = 0;
     int Multiply = 1;
+    int StockNum = Num;
 
     while (Num > 0)
     {
@@ -14,7 +15,7 @@ bool Check(int Num)
         Num /= 10;
     }
 
-    if (Sum == Multiply)
+    if ((StockNum % Sum == 0) && (StockNum % Multiply == 0))
         return true;
     else
         return false;

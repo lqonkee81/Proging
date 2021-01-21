@@ -14,7 +14,7 @@ bool Check(long Num)
             CountSevens++;
     }
 
-    if ((CountSevens >= 2) && (Num % 17 == 0))
+    if ((CountSevens > 1) && (Num % 17 == 0))
         return true;
     else
         return false;

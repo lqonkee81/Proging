@@ -6,47 +6,43 @@ int ScList[439];
 
 int Progressive(float EndOfProgression)
 {
-	float Iterator = 0.5;
-	float Result = 0;
+    float Iterator = 0.5;
+    float Result = 0;
 
-	for(int i = 0; i < EndOfProgression + 1; ++i)
-	{
-		Result = Result + Iterator;
-	}
+    for(int i = 0; i < EndOfProgression + 1; ++i) {
+	Result = Result + Iterator;
+    }
 
-	return Result;
+    return Result;
 }
 
 void Setup()
 {
-	for (int i = 0; i <= 439; ++i)
-	{
-		FsList[i] = 1580 + i;
-		ScList[i] = 1581 + i;
-	}
-
+    for(int i = 0; i <= 439; ++i) {
+	FsList[i] = 1580 + i;
+	ScList[i] = 1581 + i;
+    }
 }
 
 long Result()
 {
-	float res = 0.3;
+    float res = 0.3;
 
-	for(int i = 0; i <= 439; ++i)
-	{
-		res = 1/(Progressive(FsList[i]) * Progressive(ScList[i])) + res;
-	}
+    for(int i = 0; i <= 439; ++i) {
+	res = 1 / (Progressive(FsList[i]) * Progressive(ScList[i])) + res;
+    }
 
-	return res * 9900;
+    return res * 9900;
 }
 
 int main()
 {
-	Setup();
+    Setup();
 
-	float end = 0, iter = 0;
+    float end = 0, iter = 0;
 
-	cout << "Введите конец и итертор" << endl;
+    cout << "Введите конец и итертор" << endl;
 
-	cout << Result();
-	return 0;
+    cout << Result();
+    return 0;
 }

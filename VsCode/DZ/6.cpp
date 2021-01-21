@@ -1,9 +1,12 @@
 #include <iostream>
 #include <string>
+
 using namespace std;
 
 bool Check(long Num)
 {
+    long stockNum = Num;
+
     string strNum = to_string(Num);
 
     int CountNine = 0;
@@ -15,11 +18,11 @@ bool Check(long Num)
             CountNine++;
     }
 
-    while (Num > 0)
+    while (stockNum > 0)
     {
-        if (Num % 10 == 5)
-            TmpSum += Num % 10;
-        Num /= 10;
+        if (stockNum % 10 > 5)
+            TmpSum += stockNum % 10;
+        stockNum /= 10;
     }
 
     if ((strNum[0] == '8') && (TmpSum % 3 == 0) && (CountNine > 0))

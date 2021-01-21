@@ -5,7 +5,7 @@ int main()
 {
     int Max = 0;
     int Min = 10000;
-
+    /*
     for (int i = 2568; i <= 7858; ++i)
     {
         if ((i % 4 == 0) || (i % 5 == 0))
@@ -16,6 +16,19 @@ int main()
                     Min = i;
                 if (i > Max)
                     Max = i;
+            }
+        }
+    }*/
+
+    for (int i = 2568; i <= 7858; ++i)
+    {
+        if ((i % 4 == 0) || (i % 5 == 0))
+        {
+            if ((i % 11 != 0) && (i % 20 != 0) && (i % 27 != 0))
+            {
+                if (i < Min)
+                    Min = i;
+                Max = i;
             }
         }
     }
