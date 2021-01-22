@@ -1,52 +1,53 @@
 #include <iostream>
+
 using namespace std;
 
-bool Check(int Num)
+bool Check(const long Num)
 {
-    int Sum = 0;
-    int Multiply = 1;
-    int StockNum = Num;
+    bool IsDigChet = true;
+    int iter = 3;
+    long StockNum = Num;
 
-    while(Num > 0) {
-	Sum += Num % 10;
-	Multiply *= Num % 10;
+    while (iter > 0)
+    {
+        if ((StockNum % 10) % 2 != 0)
+            IsDigChet = false;
+        else
+        {
+            IsDigChet = true;
+            return false;
+        }
 
-	Num /= 10;
+        StockNum /= 10;
+
+        iter--;
     }
 
-    if(Multiply == 0)
-		return false;
-	else
-	{
-		if((StockNum % Sum == 0) && (StockNum % Multiply == 0))
-			return true;
-		else
-			return false;
-	}
+    return true;
 }
 
 int main()
 {
     int Count = 0;
-    int Max = 0;
+    long Razn = 0;
+    long Max = 0;
+    long Min = 100000;
 
-    for(int i = 1111; i <= 9999; ++i) {
-	if(Check(i)) {
-	    Count++;
-	    Max = i;
-	}
+    for (long i = 64444; i <= 77563; ++i)
+    {
+        if ((i % 9 != 0) && (i % 13 != 0) && (i % 17 != 0))
+        {
+            if (Check(i))
+            {
+                Count++;
+                Min = min(Min, i);
+                Max = max(Max, i);
+                Razn = Max - Min;
+            }
+        }
     }
-
     cout << "Count: " << Count << endl;
-    cout << "Max: " << Max << endl;
+    cout << "Razn: " << Razn << endl;
 
     return 0;
 }
-
-/*
-
-Рассматривается множество целых чисел, принадлежащих числовому отрезку [1111; 9999],
-которые кратны одновременно сумме и произведению своих цифр. Найдите количество таких чисел и максимальное из них.
-В ответе запишите два целых числа: сначала количество, затем – максимальное число.
-
-*/

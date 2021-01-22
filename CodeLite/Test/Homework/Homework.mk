@@ -12,8 +12,8 @@ OutDir                 := $(IntermediateDirectory)
 CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
-User                   :=
-Date                   :=01/21/21
+User                   :=lqonkee81
+Date                   :=22/01/21
 CodeLitePath           :=/home/lqonkee81/.codelite
 LinkerName             :=/usr/bin/g++
 SharedObjectLinkerName :=/usr/bin/g++ -shared -fPIC
@@ -91,9 +91,11 @@ PreBuild:
 ##
 ## Objects
 ##
-$(IntermediateDirectory)/1cpp.cpp$(ObjectSuffix): 1cpp.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/1cpp.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/1cpp.cpp$(DependSuffix) -MM 1cpp.cpp
+$(IntermediateDirectory)/1cpp.cpp$(ObjectSuffix): 1cpp.cpp $(IntermediateDirectory)/1cpp.cpp$(DependSuffix)
 	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/lqonkee81/Proging/CodeLite/Test/Homework/1cpp.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/1cpp.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/1cpp.cpp$(DependSuffix): 1cpp.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/1cpp.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/1cpp.cpp$(DependSuffix) -MM 1cpp.cpp
+
 $(IntermediateDirectory)/1cpp.cpp$(PreprocessSuffix): 1cpp.cpp
 	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/1cpp.cpp$(PreprocessSuffix) 1cpp.cpp
 
