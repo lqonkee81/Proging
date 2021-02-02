@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CodeLite_Workspace Name="Test" Database="" Version="10000">
-  <Project Name="Test" Path="Test/Test.project" Active="No"/>
+  <Project Name="Test" Path="Test/Test.project" Active="Yes"/>
   <Project Name="Study" Path="Study/Study.project" Active="No"/>
-  <Project Name="Homework" Path="Homework/Homework.project" Active="Yes"/>
+  <Project Name="Homework" Path="Homework/Homework.project" Active="No"/>
   <BuildMatrix>
     <WorkspaceConfiguration Name="Debug" Selected="yes">
       <Environment/>

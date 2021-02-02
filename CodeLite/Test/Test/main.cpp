@@ -1,48 +1,22 @@
 #include <iostream>
+#include <thread>
+
 using namespace std;
 
-int FsList[439];
-int ScList[439];
-
-int Progressive(float EndOfProgression)
+void f1()
 {
-    float Iterator = 0.5;
-    float Result = 0;
-
-    for(int i = 0; i < EndOfProgression + 1; ++i) {
-	Result = Result + Iterator;
-    }
-
-    return Result;
+    cout << "F1\n";
 }
 
-void Setup()
+void f2()
 {
-    for(int i = 0; i <= 439; ++i) {
-	FsList[i] = 1580 + i;
-	ScList[i] = 1581 + i;
-    }
-}
-
-long Result()
-{
-    float res = 0.3;
-
-    for(int i = 0; i <= 439; ++i) {
-	res = 1 / (Progressive(FsList[i]) * Progressive(ScList[i])) + res;
-    }
-
-    return res * 9900;
+    cout << "F2\n";
 }
 
 int main()
 {
-    Setup();
+    thread t1(f1);
+    thread t2(f2);
 
-    float end = 0, iter = 0;
-
-    cout << "Введите конец и итертор" << endl;
-
-    cout << Result();
     return 0;
 }
