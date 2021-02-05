@@ -7,6 +7,4 @@ class herro : public person
 {
 public:
     herro(string Name) : person(Name){};
-
-    void setHealth(int Health);
 };

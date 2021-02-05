@@ -1,6 +1,8 @@
 #include "../headers/person.h"
 
-person::person(std::string Name)
+using namespace std;
+
+person::person(string Name)
 {
     this->Name = Name;
     this->Health = 100;
@@ -15,4 +17,14 @@ std::string person::GetName()
 int person::Attack()
 {
     return this->Damage;
+}
+
+void person::SetHealth(int Health)
+{
+    this->Health = Health;
+}
+
+int person::GetHealth()
+{
+    return this->Health;
 }

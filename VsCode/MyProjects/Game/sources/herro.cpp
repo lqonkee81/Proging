@@ -2,12 +2,9 @@
 #include "person.h"
 #include <string>
 
-herro::herro(std::string Name) : person(Name)
+using namespace std;
+
+herro::herro(string Name) : person(Name)
 {
     this->Name = Name;
 };
-
-void herro::setHealth(int Health)
-{
-    this->Health = Health;
-}

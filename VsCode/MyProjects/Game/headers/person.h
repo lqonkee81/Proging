@@ -1,15 +1,20 @@
 #include <string>
 
+using namespace std;
+
 class person
 {
 public:
-    person(std::string Name);
+    person(string Name);
 
-    std::string GetName();
-    int Attack();
+    void SetHealth(int Health);
+
+    int Attack(); //Get gamage value
+    int GetHealth();
+    string GetName();
 
 protected:
-    std::string Name;
+    string Name;
     int Health;
     int Damage;
 };
