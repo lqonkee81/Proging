@@ -1,34 +1,68 @@
 #include <iostream>
-#include <sstream>
-
+#include <vector>
+#include <algorithm>
 using namespace std;
 
-void Kek(long Num)
+typedef long long ll;
+
+//#define Debug
+
+int CountDels = 0;
+vector<ll> Dels;
+bool Check(ll Num)
 {
-    string strNum;
-    string Check1;
+#ifdef Debug
+    cout << "Num: " << Num << endl;
+#endif
+    CountDels = 0;
+    Dels.clear();
 
-    strNum.clear();
-    Check1.clear();
-
-    while (Num > 0)
+    for (ll j = 2; j * j <= Num; ++j)
     {
-        strNum = to_string(Num % 8) + strNum;
-        Num /= 8;
+        if (Num % j == 0)
+        {
+            if (j % 2 == 0)
+                Dels.push_back(j);
+            if (Dels.size() > 3)
+                break;
+        }
     }
 
-    Check1 = strNum.substr(strNum.length() - 2);
+    for (ll j = 2; j * j < Num; ++j)
+    {
+        if (Num % j == 0)
+        {
+            if (j % 2 == 0)
+                Dels.push_back(Num / j);
+            if (Dels.size() > 3)
+                break;
+        }
+    }
 
-    cout << strNum << endl;
-    cout << Check1 << endl;
+    if (Dels.size() == 3)
+    {
+#ifdef Debug
+        cout << "OK" << endl;
+#endif
+        return true;
+    }
+    else
+        return false;
 }
 
 int main()
 {
-    long kk;
-    cout << "{Cin >> kk}: ";
-    cin >> kk;
-    Kek(kk);
+    vector<ll> Nums;
+    for (ll i = 0; i <= 100000; ++i)
+    {
+        if (Check(i))
+            Nums.push_back(i);
+    }
+
+    sort(Nums.begin(), Nums.end());
+
+    for (int i = 0; i < Nums.size(); ++i)
+        cout << Nums[i] << endl;
 
     return 0;
 }
