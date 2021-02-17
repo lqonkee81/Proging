@@ -1,10 +1,8 @@
-for i in range(1, 10000):
-    x = i
-    a = 1
+from random import randint
 
-    while x > 0:
-        a *= x % 11
-        x //= 11
-    if a == 120:
-        print(i)
-        break
+a = []
+
+for i in range(0, 20):
+    a.append(randint(0, 100))
+
+print(a)

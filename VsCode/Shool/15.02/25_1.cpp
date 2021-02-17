@@ -81,31 +81,31 @@ int main()
     //Тут просто складываем все в один вектор
     for (int i = 0; i < V2.size(); ++i)
         V1.push_back(V2[i]);
-    V2.~vector();
+    V2.clear();
 
     for (int i = 0; i < V3.size(); ++i)
         V1.push_back(V3[i]);
-    V3.~vector();
+    V3.clear();
 
     for (int i = 0; i < V4.size(); ++i)
         V1.push_back(V4[i]);
-    V4.~vector();
+    V4.clear();
 
     for (int i = 0; i < V4.size(); ++i)
         V1.push_back(V4[i]);
-    V4.~vector();
+    V4.clear();
 
     for (int i = 0; i < V5.size(); ++i)
         V1.push_back(V5[i]);
-    V5.~vector();
+    V5.clear();
 
     for (int i = 0; i < V6.size(); ++i)
         V1.push_back(V6[i]);
-    V6.~vector();
+    V6.clear();
 
     for (int i = 0; i < V7.size(); ++i)
         V1.push_back(V7[i]);
-    V7.~vector();
+    V7.clear();
 
     sort(V1.begin(), V1.end());
 
