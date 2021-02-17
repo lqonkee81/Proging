@@ -1,68 +1,41 @@
 #include <iostream>
-#include <vector>
-#include <algorithm>
 using namespace std;
 
-typedef long long ll;
-
-//#define Debug
-
-int CountDels = 0;
-vector<ll> Dels;
-bool Check(ll Num)
+unsigned long Count(unsigned long a)
 {
-#ifdef Debug
-    cout << "Num: " << Num << endl;
-#endif
-    CountDels = 0;
-    Dels.clear();
+    unsigned long count = 1, k = 0, i;
+    if (a == 1 || a == 2)
+        return a;
 
-    for (ll j = 2; j * j <= Num; ++j)
+    while ((a & 1) == 0)
     {
-        if (Num % j == 0)
-        {
-            if (j % 2 == 0)
-                Dels.push_back(j);
-            if (Dels.size() > 3)
-                break;
-        }
+        k++;
+        a >>= 1;
     }
 
-    for (ll j = 2; j * j < Num; ++j)
-    {
-        if (Num % j == 0)
-        {
-            if (j % 2 == 0)
-                Dels.push_back(Num / j);
-            if (Dels.size() > 3)
-                break;
-        }
-    }
-
-    if (Dels.size() == 3)
-    {
-#ifdef Debug
-        cout << "OK" << endl;
-#endif
-        return true;
-    }
+    if (a == 1)
+        return k + 1;
     else
-        return false;
+        count = k + 1;
+
+    for (i = 3; i * i <= a; i += 2)
+    {
+        k = 0;
+        while (a % i == 0)
+        {
+            k++;
+            a /= i;
+        }
+        count *= (k + 1);
+    }
+
+    if (a > 1)
+        count <<= 1;
+    return count;
 }
 
 int main()
 {
-    vector<ll> Nums;
-    for (ll i = 0; i <= 100000; ++i)
-    {
-        if (Check(i))
-            Nums.push_back(i);
-    }
-
-    sort(Nums.begin(), Nums.end());
-
-    for (int i = 0; i < Nums.size(); ++i)
-        cout << Nums[i] << endl;
-
+    cout << Count(101999894) << endl;
     return 0;
 }

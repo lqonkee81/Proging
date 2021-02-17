@@ -3,6 +3,7 @@
 #include <thread>
 #include <chrono>
 #include <algorithm>
+#include <cmath>
 
 using namespace std;
 
@@ -23,21 +24,18 @@ void Function(long Start, long End, vector<long> &Nums)
 {
     int DelsCount = 0;
 
-    for (long i = Start; i < End; ++i)
+    for (long i = Start; i < End; i += 2)
     {
 #ifdef Debug_I_Num
         cout << "{i from " << this_thread::get_id() << "}: " << i << endl;
 #endif
         DelsCount = 0;
-        for (long j = 2; j <= i; ++j)
+        for (long j = 2; j <= i; j += 2)
         {
-            if (j % 2 == 0)
-            {
-                if (i % j == 0)
-                    DelsCount++;
-                if (DelsCount > 3)
-                    break;
-            }
+            if (i % j == 0)
+                DelsCount++;
+            if (DelsCount > 3)
+                break;
         }
 
         if (DelsCount == 3)
@@ -52,6 +50,10 @@ void Function(long Start, long End, vector<long> &Nums)
 
 int main()
 {
+    //Пара оптимизаций вывода
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+
     //Создаем кучу потоков
     thread t1(Function, 101000000, 101125000, ref(V1));
     thread t2(Function, 101125000, 101250000, ref(V2));
@@ -70,11 +72,7 @@ int main()
     t6.join();
     t7.join();
 
-#ifdef Other_Debug
-    cout << "ОПА" << endl;
-#endif
-
-    //Тут просто складываем все в один вектор
+    //Тут просто складываем все в один вектор и подчищаем память
     for (int i = 0; i < V2.size(); ++i)
         V1.push_back(V2[i]);
     V2.~vector();

@@ -7,9 +7,9 @@
 using namespace std;
 
 //ДЕФАЙНЫ НЕ СТРИРАТЬ! РУКИ ВЫРВУ! ОНИ ДОЛЖНЫ БЫТЬ ЗАКОМЕНЧЕНЫ!
-//#define Debug_I_Num
-//#define Debug_Vector_PushBack
-//#define Other_Debug
+#define Debug_I_Num
+#define Debug_Vector_PushBack
+#define Other_Debug
 
 vector<long> V1;
 vector<long> V2;
@@ -24,8 +24,9 @@ vector<long> Dels;
 void Function(long Start, long End, vector<long> &Nums)
 {
 
-    for (long i = Start; i < End; ++i)
+    for (long i = Start; i < End; i += 2)
     {
+
 #ifdef Debug_I_Num
         cout << "{i from " << this_thread::get_id() << "}: " << i << endl;
 #endif
@@ -36,9 +37,11 @@ void Function(long Start, long End, vector<long> &Nums)
             if (j % 2 == 0)
             {
                 if (i % j == 0)
+                {
                     Dels.push_back(j);
-                if (i / j != j)
-                    Dels.push_back(i / j);
+                    if (i / j != j)
+                        Dels.push_back(i / j);
+                }
                 if (Dels.size() > 3)
                     break;
             }
@@ -81,7 +84,7 @@ int main()
     //Тут просто складываем все в один вектор
     for (int i = 0; i < V2.size(); ++i)
         V1.push_back(V2[i]);
-    V2.clear();
+    //V2.clear();
 
     for (int i = 0; i < V3.size(); ++i)
         V1.push_back(V3[i]);
@@ -109,7 +112,7 @@ int main()
 
     sort(V1.begin(), V1.end());
 
-    // system("clear");
+    system("clear");
 
     for (int i = 0; i < V1.size(); ++i)
         cout << "{V1[" << i << "]}: " << V1[i] << endl;
@@ -118,3 +121,4 @@ int main()
 }
 
 //125000
+//101863958
